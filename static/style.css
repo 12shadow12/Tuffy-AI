@@ -1,0 +1,173 @@
+/* body {
+  padding: 0;
+  margin: 0;
+  background-color: #f47920;
+} */
+
+body, html{
+  width: 99.4%;
+  height: 94%;
+  background-color: #f47920;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.toppane {
+  width: 100%;
+  height: 10%;
+  border-collapse: collapse;
+  /* background-color: #4da6ff; */
+}
+
+.leftpane {
+    width: 25%;
+    height: 100%;
+    float: left;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.5);
+    /* border: 1px solid #134f7b; */
+    outline: 2px solid #134f7b;
+    border-collapse: collapse;
+}
+
+.middlepane {
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+    border-collapse: collapse;
+}
+
+.rightpane {
+  width: 25%;
+  height: 100%;
+  float: right;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  /* border: 1px solid #134f7b; */
+  outline: 2px solid #134f7b;
+  border-collapse: collapse;
+}
+
+/* .input{
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  height: 5%;
+  float: left
+}
+
+.button{
+  position: absolute;
+  bottom: 0;
+  width: 10%;
+  height: 5%;
+  float: right
+} */
+
+input[type="text"] {
+  width: 80%;
+  height: 4%;
+  position: absolute;
+  bottom: 0;
+
+}
+
+button[type="submit"] {
+  height: 5%;
+  width: 18%;
+  background: #134f7b;
+  color: white;
+  border: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* .animation {
+  width: 400px;
+  height: 600px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 70%;
+  background: url(sprite-sheet.png);
+  /*Steps should be equal to number of frames
+  animation: kick 0.5s steps(6) infinite;
+}
+@keyframes kick {
+  0% {
+    background-position: 0 0;
+  }
+  /* Use height of image here as y position 
+  100% {
+    background-position: 0 -3600px;
+  }
+} */
+
+.animation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%
+}
+
+/* Nav */
+nav {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  margin-bottom: 7rem;
+}
+
+nav ul {
+  list-style: none;
+  float: right
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 0.5rem;
+  position: relative;
+  text-align: left;
+}
+
+/* Nav Dropdown */
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul {
+  background: var(--color-bg);
+  border: 1px solid var(--color-bg-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow) var(--color-shadow);
+  display: none;
+  height: auto;
+  left: -2px;
+  padding: .5rem 1rem;
+  position: absolute;
+  top: 1.7rem;
+  white-space: nowrap;
+  width: auto;
+  z-index: 1;
+}
+
+nav ul li ul::before {
+  /* fill gap above to make mousing over them easier */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.5rem;
+  height: 0.5rem;
+}
+
+nav ul li ul li,
+nav ul li ul li a {
+  display: block;
+}

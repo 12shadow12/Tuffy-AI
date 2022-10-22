@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprite Sheet Animation</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="toppane">
+        
+        <nav>
+          <h1>Tuffy-Aide</h1>
+          <ul style="float: right">
+            <li>
+              <img src="../static/profile.png" alt="settings icon" width="40px" height="40px">
+            </li>
+            <li>
+              <img src="../static/settings.png" alt="settings icon" width="40px" height="40px">
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="leftpane">
+        
+      </div>
+      <div class="middlepane">
+        
+          <img class="animation" src="../static/1.png" alt="Tuffy the Titan">
+
+      </div>
+      <div class="rightpane">
+        <input class="input" type="text" id="command" name="command" placeholder="Enter a command">
+        <button class="button" id="speak" type="submit">SPEAK</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+  $(function() {
+    $('button#speak').on('click', function(e){
+      e.preventDefault()
+      $.getJSON('/command', function(data){
+
+      });
+      return false;
+    });
+  });
+</script>
