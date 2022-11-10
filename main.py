@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
+import time
+from datetime import datetime
+
 import pyttsx3
 import speech_recognition as sr
-from datetime import datetime
-import time
 import wikipedia
-import modules.weather as weather
-import modules.greetings as greetings
+
 import modules.canvas as canvas
+import modules.greetings as greetings
 import modules.jokes as jokes
+import modules.weather as weather
 
 
 def say(audio: str) -> None:   
@@ -21,21 +23,17 @@ def say(audio: str) -> None:
 
 def command(q=True) -> str:
     recognizer = sr.Recognizer()
-    command = None
     with sr.Microphone() as source:
         recognizer.pause_threshold = .6
         try:
             audio = recognizer.listen(source, 5)
         except sr.WaitTimeoutError:
             pass
-            return command
-        try:
-            command = recognizer.recognize_google(audio, language='en')
-        except:
-            if q:
-                say("I'm sorry, I could not understand. How may I help you?")
             return None
-        return command
+        try:
+            return recognizer.recognize_google(audio, language='en')
+        except Exception as e:
+            return None
 
 def greet() -> None:
     say(greetings.greet("Donald"))
@@ -91,6 +89,8 @@ def respondToCommand() -> None:
             elif "goodbye" in c or "bye" in c:
                 say("goodbye")
                 break
+            else:
+                say("Im sorry, I do not understand that command.")
 
 
 if __name__ == '__main__':
