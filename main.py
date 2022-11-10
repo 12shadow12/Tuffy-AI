@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import pyttsx3
 import speech_recognition as sr
-import weather
-import greetings
 from datetime import datetime
 import time
 import wikipedia
-import canvas
-import jokes
+import modules.weather as weather
+import modules.greetings as greetings
+import modules.canvas as canvas
+import modules.jokes as jokes
 
 
 def say(audio: str) -> None:   
