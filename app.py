@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
 import main
 
 
 app = Flask(__name__)
+loop = False
 
 @app.route('/')
 def home():
@@ -17,6 +18,12 @@ def settings():
 def command():
     main.respondToCommand()
     return
+
+@app.route('/textCommand/<query>')
+def textCommand(query):
+    data = {}
+    data['response'] = main.respondToCommand(loop=False, c=query)
+    return data
 
 @app.route('/profile')
 def profile():

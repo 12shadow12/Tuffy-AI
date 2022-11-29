@@ -4,49 +4,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sprite Sheet Animation</title>
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/css/main.css" />
   </head>
-  <body>
-    <div class="container">
-      <div class="toppane">
-        
-        <nav>
-          <h1>Tuffy-Aide</h1>
-          <ul style="float: right">
-            <li>
-              <a href="./profile"><img src="../static/profile.png" alt="settings icon" width="40px" height="40px"></a>
-            </li>
-            <li>
-              <a href="./settings"><img src="../static/settings.png" alt="settings icon" width="40px" height="40px"></a>
-            </li>
-          </ul>
-        </nav>
+  <body class="h-screen bg-orange-400 w-screen text-gray-800 p-10">
+    <nav class="h-20 border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+      <div
+        class="container flex flex-wrap items-center justify-between mx-auto"
+      >
+        <h1 class="text-xl font-bold">Tuffy-Aide</h1>
+        <ul class="flex justify-end">
+          <li class="mr-6">
+            <a href="./profile"
+              ><img
+                src="../static/profile.png"
+                alt="settings icon"
+                width="40px"
+                height="40px"
+            /></a>
+          </li>
+          <li>
+            <a href="./settings"
+              ><img
+                src="../static/settings.png"
+                alt="settings icon"
+                width="40px"
+                height="40px"
+            /></a>
+          </li>
+        </ul>
       </div>
-      <div class="leftpane">
-        
-      </div>
-      <div class="middlepane">
-        
-          <img class="animation" src="../static/1.png" alt="Tuffy the Titan">
+    </nav>
 
+    <div style="height: 90%" class="grid grid-cols-2">
+      <div class="flex flex-grow object-bottom">
+        <img src="../static/1.png" alt="Tuffy the Titan" />
       </div>
-      <div class="rightpane">
-        <input class="input" type="text" id="command" name="command" placeholder="Enter a command">
-        <button class="button" id="speak" type="submit">SPEAK</button>
+
+      <div
+        class="bg-orange-200 flex flex-col w-full shadow-xl rounded-lg overflow-auto"
+      >
+        <div
+          id="messages"
+          class="flex flex-col flex-grow p-4 overflow-auto"
+        ></div>
+
+        <div class="bg-gray-300 p-4">
+          <form action="">
+            <input
+              id="text_command"
+              class="flex items-center h-10 w-full rounded px-3 text-sm"
+              type="text"
+              placeholder="Type your message…"
+            />
+          </form>
+        </div>
       </div>
     </div>
   </body>
 </html>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type=text/javascript>
-  $(function() {
-    $('button#speak').on('click', function(e){
+<script>
+  $(function () {
+    $('button#speak').on('click', function (e) {
       e.preventDefault()
-      $.getJSON('/command', function(data){
+      $.getJSON('/command', function (data) {})
+      return false
+    })
+  })
 
-      });
-      return false;
-    });
-  });
+  $(function () {
+    $('input#text_command').keypress(function (e) {
+      e.preventDefault()
+      let query = document.querySelector('#text_command').value
+      if (e.keyCode == '13') {
+        console.log(query)
+        const messages = document.querySelector('#messages')
+
+        const outer_div = document.createElement('div')
+        outer_div.classList.add(
+          'flex',
+          'w-full',
+          'mt-2',
+          'space-x-3',
+          'max-w-xs',
+          'ml-auto',
+          'justify-end'
+        )
+
+        const mid_div1 = document.createElement('div')
+
+        const inner_div = document.createElement('div')
+        inner_div.classList.add(
+          'bg-blue-900',
+          'text-white',
+          'p-3',
+          'rounded-l-lg',
+          'rounded-br-lg'
+        )
+
+        const p = document.createElement('p')
+        p.classList.add('text-sm')
+        p.innerText = query
+
+        const span = document.createElement('span')
+        span.classList.add('text-xs', 'text-gray-500', 'leading-none')
+        let date = new Date()
+        span.innerText = `${date.toDateString()} ${date.toTimeString()}`
+
+        inner_div.append(p)
+        mid_div1.append(inner_div)
+        mid_div1.append(span)
+
+        const mid_div2 = document.createElement('div')
+        mid_div2.classList.add(
+          'flex-shrink-0',
+          'h-10',
+          'w-10',
+          'rounded-full',
+          'bg-gray-300'
+        )
+
+        outer_div.append(mid_div1)
+        outer_div.append(mid_div2)
+
+        messages.append(outer_div)
+        outer_div.scrollIntoView()
+
+        document.querySelector('#text_command').value = ''
+
+        $.getJSON(`/textCommand/${query}`, function (data) {
+          console.log(data)
+          const messages = document.querySelector('#messages')
+
+          const outer_div = document.createElement('div')
+          outer_div.classList.add(
+            'flex',
+            'w-full',
+            'mt-2',
+            'space-x-3',
+            'max-w-xs'
+          )
+
+          const mid_div1 = document.createElement('div')
+          mid_div1.classList.add(
+            'flex-shrink-0',
+            'h-10',
+            'w-10',
+            'rounded-full'
+            //'bg-gray-300'
+          )
+
+          // const img = document.createElement('img')
+          // img.setAttribute('src', '../static/12.png')
+
+          // mid_div1.append(img)
+          mid_div1.style.backgroundImage = 'url("../static/12.png")'
+
+          const inner_div = document.createElement('div')
+          inner_div.classList.add(
+            'bg-white',
+            'p-3',
+            'rounded-l-lg',
+            'rounded-br-lg'
+          )
+
+          const p = document.createElement('p')
+          p.classList.add('text-sm')
+          p.innerText = data['response']
+
+          const span = document.createElement('span')
+          span.classList.add('text-xs', 'text-gray-500', 'leading-none')
+          let date = new Date()
+          span.innerText = `${date.toDateString()} ${date.toTimeString()}`
+
+          const mid_div2 = document.createElement('div')
+
+          inner_div.append(p)
+          mid_div2.append(inner_div)
+          mid_div2.append(span)
+
+          outer_div.append(mid_div1)
+          outer_div.append(mid_div2)
+
+          messages.append(outer_div)
+          outer_div.scrollIntoView()
+        })
+      } else {
+        document.querySelector('#text_command').value += e.key
+      }
+      return false
+    })
+  })
 </script>
