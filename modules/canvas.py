@@ -39,3 +39,5 @@ def getCourses():
     if not courses:
         populateCourses()
     return courses.values()
+
+populateAssignments()
