@@ -1,0 +1,22 @@
+{
+  "name": "cpsc362-tuffy-aide",
+  "version": "1.0.0",
+  "description": "CPSC 362 PROJECT",
+  "main": "app.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnovasky/CPSC362-Tuffy-Aide.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnovasky/CPSC362-Tuffy-Aide/issues"
+  },
+  "homepage": "https://github.com/dnovasky/CPSC362-Tuffy-Aide#readme",
+  "dependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}

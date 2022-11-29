@@ -4,7 +4,8 @@
   background-color: #f47920;
 } */
 
-body, html{
+body,
+html {
   width: 99.4%;
   height: 94%;
   background-color: #f47920;
@@ -17,32 +18,21 @@ body, html{
 
 .toppane {
   width: 100%;
-  height: 10%;
+  height: 75px;
   border-collapse: collapse;
   /* background-color: #4da6ff; */
 }
 
-.leftpane {
-    width: 25%;
-    height: 100%;
-    float: left;
-    background-color: white;
-    background: rgba(255, 255, 255, 0.5);
-    /* border: 1px solid #134f7b; */
-    outline: 2px solid #134f7b;
-    border-collapse: collapse;
-}
-
 .middlepane {
-    width: 50%;
-    height: 100%;
-    float: left;
-    position: relative;
-    border-collapse: collapse;
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: relative;
+  border-collapse: collapse;
 }
 
 .rightpane {
-  width: 25%;
+  width: 50%;
   height: 100%;
   float: right;
   position: relative;
@@ -68,15 +58,14 @@ body, html{
   float: right
 } */
 
-input[type="text"] {
+input[type='text'] {
   width: 80%;
   height: 4%;
   position: absolute;
   bottom: 0;
-
 }
 
-button[type="submit"] {
+button[type='submit'] {
   height: 5%;
   width: 18%;
   background: #134f7b;
@@ -112,7 +101,7 @@ button[type="submit"] {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 
 /* Nav */
@@ -126,7 +115,7 @@ nav {
 
 nav ul {
   list-style: none;
-  float: right
+  float: right;
 }
 
 nav ul li {
@@ -149,7 +138,7 @@ nav ul li ul {
   display: none;
   height: auto;
   left: -2px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   top: 1.7rem;
   white-space: nowrap;
@@ -159,7 +148,7 @@ nav ul li ul {
 
 nav ul li ul::before {
   /* fill gap above to make mousing over them easier */
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
