@@ -1,2 +1,7 @@
+#APIKEYS
 config.py
+
+#Directories
+venv
 __pycache__
+node_modules
