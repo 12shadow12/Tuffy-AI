@@ -1,6 +1,5 @@
 from flask import Flask, request
 from flask import render_template
-import main
 
 
 app = Flask(__name__)
@@ -30,4 +29,5 @@ def profile():
     return render_template("profile.html")
 
 if __name__ == '__main__':
+    import main
     app.run()

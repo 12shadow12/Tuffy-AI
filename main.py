@@ -7,11 +7,11 @@ import pyttsx3
 import speech_recognition as sr
 import wikipedia
 
+import app as gui
 import modules.canvas as canvas
 import modules.greetings as greetings
 import modules.jokes as jokes
 import modules.weather as weather
-
 
 
 def say(audio: str) -> None:   
@@ -110,7 +110,6 @@ def respondToCommand(loop=True, c=None) -> None:
             elif "goodbye" in c or "bye" in c:
                 result = "goodbye"
                 return result
-                break
             else:
                 result = "Im sorry, I do not understand that command."
             say(result)

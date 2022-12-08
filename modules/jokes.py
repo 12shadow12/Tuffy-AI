@@ -2,7 +2,7 @@
 import requests
 
 
-url = 'https://v2.jokeapi.dev/joke/'
+url = 'https://v2.jokeapi.dev/joke/Programming,Pun,Spooky,Christmas'
 #headers = {'content-type': 'application/json',}
 
 def getJoke(type: str='Any'):
